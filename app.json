@@ -1,0 +1,58 @@
+{
+  "expo": {
+    "name": "1% Better",
+    "slug": "one-percent-better",
+    "version": "1.0.0",
+    "description": "1% Better: a daily habit and self-accountability tracker.",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "onepercentbetter",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "bundleIdentifier": "com.onepercentbetter.tracker",
+      "supportsTablet": false,
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "com.onepercentbetter.tracker",
+      "adaptiveIcon": {
+        "backgroundColor": "#0B0A1F",
+        "foregroundImage": "./assets/images/android-icon-foreground.png",
+        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "output": "single",
+      "favicon": "./assets/images/favicon.png",
+      "name": "1% Better",
+      "shortName": "1% Better",
+      "themeColor": "#0B0A1F",
+      "backgroundColor": "#0B0A1F"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#0B0A1F",
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 180
+        }
+      ],
+      "@react-native-community/datetimepicker",
+      [
+        "expo-notifications",
+        {
+          "color": "#4A3AA7"
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}
