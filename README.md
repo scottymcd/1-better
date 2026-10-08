@@ -45,18 +45,22 @@ Penalties are applied after that day's points, so a celebration you earned durin
 
 The quickest way is **Expo Go**, a free App Store app that runs this project straight from your computer.
 
-1. Install [Node.js](https://nodejs.org) (the LTS version) on your Mac, Windows or Linux computer.
-2. Get the code and start it:
+1. Install [Node.js](https://nodejs.org) (the LTS version) on your Mac, Windows or Linux computer. You don't need to open or run Node yourself; the commands below use it behind the scenes.
+2. Open a terminal. On a Mac, that's the **Terminal** app (Applications → Utilities → Terminal).
+3. Type these commands one at a time at the normal prompt (the line ending in `$` or `%`), pressing Return after each:
    ```bash
    git clone https://github.com/scottymcd/1-better.git
    cd 1-better
    npm install
    npx expo start
    ```
-3. On your iPhone, install **Expo Go** from the App Store and keep it up to date. This project uses Expo SDK 57.
-4. Scan the QR code shown in the terminal with the iPhone Camera app.
+   - Don't type `node` first. That opens a JavaScript prompt (`>`) where these commands fail with `SyntaxError`. If you see a `>` prompt, press Ctrl+D twice to leave it.
+   - On a Mac, the first `git` command may pop up an offer to install the "command line developer tools". Click **Install**, wait for it to finish, then run `git clone` again.
+   - `npm install` takes a minute or two. Leave the terminal open while you use the app; press Ctrl+C to stop it.
+4. On your iPhone, install **Expo Go** from the App Store and keep it up to date. This project uses Expo SDK 57.
+5. Scan the QR code shown in the terminal with the iPhone Camera app. If Expo Go asks to find devices on your local network, tap **Allow**.
 
-If your phone and computer aren't on the same Wi-Fi network, run `npx expo start --tunnel` instead. Daily reminders and haptics work in Expo Go. Your data is saved on the phone between sessions.
+If your phone and computer aren't on the same Wi-Fi network, run `npx expo start --tunnel` instead. Next time, you only need to open Terminal and run `cd 1-better`, then `npx expo start`. Daily reminders and haptics work in Expo Go. Your data is saved on the phone between sessions.
 
 ## Install it as a standalone app (TestFlight / App Store)
 
