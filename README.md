@@ -54,7 +54,8 @@ The quickest way is **Expo Go**, a free App Store app that runs this project str
    npm install
    npx expo start
    ```
-   - Don't type `node` first. That opens a JavaScript prompt (`>`) where these commands fail with `SyntaxError`. If you see a `>` prompt, press Ctrl+D twice to leave it.
+   - Don't type `node` first. That opens a JavaScript prompt (`>`) where these commands fail with `SyntaxError`. If you see a `>` prompt, type `.exit` and press Return to leave it. (Pressing Ctrl+D at the normal prompt closes the terminal session; if that happens, open a new window with ⌘N.)
+   - Pressing Return runs a command. Wait for the prompt to come back before typing the next one.
    - On a Mac, the first `git` command may pop up an offer to install the "command line developer tools". Click **Install**, wait for it to finish, then run `git clone` again.
    - `npm install` takes a minute or two. Leave the terminal open while you use the app; press Ctrl+C to stop it.
 4. On your iPhone, install **Expo Go** from the App Store and keep it up to date. This project uses Expo SDK 57.
