@@ -43,7 +43,7 @@ Penalties are applied after that day's points, so a celebration you earned durin
 
 ## Run it on your iPhone (free, no Mac needed)
 
-The quickest way is **Expo Go**, a free App Store app that runs this project straight from your computer.
+The quickest way is **Expo Go**, a free App Store app that runs this project straight from your computer. On a physical iPhone, Expo Go only opens a project when your computer and Expo Go are signed in to the same Expo account, so first create a free one at [expo.dev/signup](https://expo.dev/signup).
 
 1. Install [Node.js](https://nodejs.org) (the LTS version) on your Mac, Windows or Linux computer. You don't need to open or run Node yourself; the commands below use it behind the scenes.
 2. Open a terminal. On a Mac, that's the **Terminal** app (Applications → Utilities → Terminal).
@@ -52,17 +52,19 @@ The quickest way is **Expo Go**, a free App Store app that runs this project str
    git clone https://github.com/scottymcd/1-better.git
    cd 1-better
    npm install
+   npx expo login
    npx expo start
    ```
    - Don't type `node` first. That opens a JavaScript prompt (`>`) where these commands fail with `SyntaxError`. If you see a `>` prompt, type `.exit` and press Return to leave it. (Pressing Ctrl+D at the normal prompt closes the terminal session; if that happens, open a new window with ⌘N.)
    - Pressing Return runs a command. Wait for the prompt to come back before typing the next one.
    - On a Mac, the first `git` command may pop up an offer to install the "command line developer tools". Click **Install**, wait for it to finish, then run `git clone` again.
    - `npm install` takes a minute or two. It prints warnings about deprecated packages, "vulnerabilities" and install scripts. These come from development tools, not from the app on your phone, so you can ignore them. Don't run `npm audit fix --force`; it swaps in package versions that don't work with Expo.
+   - `npx expo login` asks for your Expo email or username, then your password. The password doesn't appear as you type; that's normal. If you signed up with Google, GitHub or Apple, run `npx expo login --browser` instead. You only need to log in once.
    - `npx expo start` shows a QR code. Leave the terminal open while you use the app, and press Ctrl+C to stop it.
-4. On your iPhone, install **Expo Go** from the App Store and keep it up to date. This project uses Expo SDK 57.
+4. On your iPhone, install **Expo Go** from the App Store and keep it up to date. This project uses Expo SDK 57. Open it, tap the account icon in the top-right corner, and sign in with the same Expo account.
 5. Scan the QR code shown in the terminal with the iPhone Camera app. If Expo Go asks to find devices on your local network, tap **Allow**.
 
-If your phone and computer aren't on the same Wi-Fi network, run `npx expo start --tunnel` instead. Next time, you only need to open Terminal and run `cd 1-better`, then `npx expo start`. Daily reminders and haptics work in Expo Go. Your data is saved on the phone between sessions.
+If Expo Go says you need to be signed in to Expo Go and Expo CLI, one side isn't signed in (or the two accounts differ). Sign in on both, then tap **Try Again**. If your phone and computer aren't on the same Wi-Fi network, run `npx expo start --tunnel` instead. Next time, you only need to open Terminal and run `cd 1-better`, then `npx expo start`. Daily reminders and haptics work in Expo Go. Your data is saved on the phone between sessions.
 
 ## Install it as a standalone app (TestFlight / App Store)
 
