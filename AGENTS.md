@@ -48,4 +48,5 @@ Docs: https://docs.expo.dev/eas/index.md
 - State: Zustand store persisted to AsyncStorage (`src/state/store.ts`). Never write to the store before `useHasHydrated()` is true.
 - The app must keep running in **Expo Go** (no custom native modules). Reminders are local `DAILY` notifications (`src/lib/notifications.ts`).
 - Category colors and chart palettes in `src/constants/theme.ts` were checked for color-blind separation and contrast; keep labels next to colored marks.
+- Web app: `public/index.html` is the web page template (Home Screen meta tags, service worker registration), `public/sw.js` provides offline support, and `npm run build:web` runs `expo export` and then `scripts/write-precache.mjs`, which lists every build file in `dist/precache.json` and stamps the service worker's cache name. Use `npm run build:web` rather than a bare `expo export` for the web.
 - Run `npm test`, `npm run lint` and `npm run typecheck` before declaring a task done.

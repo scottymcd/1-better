@@ -66,6 +66,26 @@ The quickest way is **Expo Go**, a free App Store app that runs this project str
 
 If Expo Go says you need to be signed in to Expo Go and Expo CLI, one side isn't signed in (or the two accounts differ). Sign in on both, then tap **Try Again**. If your phone and computer aren't on the same Wi-Fi network, run `npx expo start --tunnel` instead. Next time, you only need to open Terminal and run `cd 1-better`, then `npx expo start`. Daily reminders and haptics work in Expo Go. Your data is saved on the phone between sessions.
 
+## Use it without your computer (free web app)
+
+Expo Go only works while `npx expo start` is running on your computer. For a version that runs on its own, publish the free web app and add it to your iPhone's Home Screen. It opens full screen with its own icon, and after the first visit it works without an internet connection. Daily reminders and haptics aren't available in the web app.
+
+1. In Terminal, in the `1-better` folder, get the latest code and publish it to Expo's free hosting:
+   ```bash
+   git pull
+   npm run deploy:web
+   ```
+   The first time, it asks a few questions:
+   - If it asks to install `eas-cli`, type `y`.
+   - If it offers to create an EAS project for your account, choose **Yes**.
+   - When it asks for a preview subdomain name, pick a name for your link, such as `one-percent-better`. Names are shared by everyone, so try another if it's taken.
+
+   It finishes by printing your link, such as `https://one-percent-better.expo.app`.
+2. On your iPhone, open the link in **Safari**. Tap the **Share** button, then **Add to Home Screen**, then **Add**.
+3. From now on, open 1% Better from its Home Screen icon. The Home Screen app keeps its own data, separate from Safari tabs and from Expo Go, so it starts empty. Removing the icon can erase that data.
+
+To publish an update later, run `git pull` and then `npm run deploy:web` again. The Home Screen app picks up the new version the next time you open it with an internet connection.
+
 ## Install it as a standalone app (TestFlight / App Store)
 
 You'll need an [Apple Developer account](https://developer.apple.com/programs/) ($99/year). [EAS Build](https://docs.expo.dev/build/introduction/) builds the iOS app in the cloud, so you still don't need a Mac.
@@ -84,6 +104,8 @@ You'll need an [Apple Developer account](https://developer.apple.com/programs/) 
 ```bash
 npm start           # Expo dev server (scan the QR code with Expo Go)
 npm run web         # browser preview (reminders and haptics are iPhone-only)
+npm run build:web   # production web build in dist/, with offline support
+npm run deploy:web  # build:web, then publish it with EAS Hosting
 npm test            # unit tests (Jest): scoring, metrics, store, reminders
 npm run lint        # ESLint
 npm run typecheck   # TypeScript
@@ -109,6 +131,8 @@ src/
     notifications.ts      Daily local reminders (expo-notifications)
     dates.ts              Local-day keys and calendar maths
   state/                  Zustand store persisted with AsyncStorage, today/progress providers
+public/                   Web app page template, Home Screen icons, offline service worker
+scripts/                  write-precache.mjs: lists the web build's files for offline use
 ```
 
 The progress score is never stored. It's recomputed from your habits and answers whenever something changes, so it's always consistent with your history. To try the dashboard without waiting weeks, use **Settings → Load sample data**. This replaces your data with 75 days of example history.
